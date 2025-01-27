@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+
+
+    <style>
+        body {
+            background-color: black;
+            color: white
+        }
+
+        .heading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+        }
+
+        .next {
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+            font-size: 1.5rem;
+            color: aqua;
+        }
+
+        .next input {
+            width: 300px;
+            margin-left: 30px;
+            border-radius: 2rem;
+            border: 3px solid aqua;
+            background-color: hsl(0, 2%, 75%);
+        }
+
+        .next input:hover {
+            box-shadow: 0px 0px 100px 0px aqua;
+            cursor: pointer;
+        }
+
+        button {
+            margin-left: 20px;
+            width: 100px;
+            background-color: rgb(208, 250, 146);
+            border-radius: 1rem;
+            border: 2px solid rgb(208, 250, 146);
+            font-size: 1rem;
+            font-weight: 300nt
+        }
+
+        button:hover {
+            box-shadow: 0px 0px 100px 0px greenyellow;
+            cursor: pointer;
+        }
+
+        .last {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+        }
+
+        #listitems li {
+            color: cyan;
+            list-style-type: decimal;
+            margin-top: 30px;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <div class="heading">
+        SIMPLE TO DO LIST
+    </div>
+
+    <div class="next">
+        Enter your today To Do Works : <input id="input">
+        <button onclick="add()">ADD</button>
+    </div>
+
+    <div class="last">
+        <ul id="listitems">
+            <li>Take the report | <button onclick="deleteItems(event)">DELETE</button></li>
+        </ul>
+    </div>
+
+
+
+    <script>
+        var ul = document.getElementById("listitems")
+        var input = document.getElementById("input")
+        function add() {
+            var items = document.createElement("li")
+            items.innerHTML = input.value + "<button onclick='deleteItems(event)'>DELETE</button>"
+            ul.append(items)
+        }
+        function deleteItems(event) {
+            event.target.parentElement.remove()
+        }
+
+    </script>
+
+
+</body>
+
+</html>
